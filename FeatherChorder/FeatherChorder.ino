@@ -444,7 +444,7 @@ void loop() {
   // Build the current key state.
   byte keyState = 0, mask = 1;
   for (int i = 0; i < 7; i++) {
-    if (switch_pins[i].isDown()) keyState |= mask;
+    if (!switch_pins[i].isDown()) keyState |= mask;
     mask <<= 1;
   }
 
@@ -465,4 +465,3 @@ void loop() {
 
   lastKeyState = keyState;
 }
-
